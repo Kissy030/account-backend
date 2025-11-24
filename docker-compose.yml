@@ -11,7 +11,7 @@ services:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_DATABASE: root
+      MYSQL_DATABASE: account_db
     networks:
       - app-net
     ports:

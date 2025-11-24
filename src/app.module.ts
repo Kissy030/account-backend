@@ -37,7 +37,7 @@ import { SignalInfo } from './signal-info/entities/signal-info.entity';
         host: 'mysql-container',
         username: 'root',
         password: '123456',
-        database: 'test',
+        database: 'account_db',
         entities: [User, AccountInfo, SignalInfo],
         synchronize: false,
         logging: true,
