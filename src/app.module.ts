@@ -35,7 +35,7 @@ import { SignalInfo } from './signal-info/entities/signal-info.entity';
       useFactory: (configService: ConfigService) => ({
         type: 'mysql',
         host: 'mysql-container',
-        username: 'account_db',
+        username: 'root',
         password: '123456',
         database: 'test',
         entities: [User, AccountInfo, SignalInfo],
