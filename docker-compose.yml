@@ -1,13 +1,13 @@
 version: '3.8'
 services:
-  redis:
+  redis-container:
     image: redis:alpine
     networks:
       - app-net
     ports:
       - 6379:6379
 
-  mysql:
+  mysql-container:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: 123456
@@ -23,10 +23,9 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - 3000:3000
-
     depends_on:
-      - redis
-      - mysql
+      - redis-container
+      - mysql-container
     networks:
       - app-net
 
