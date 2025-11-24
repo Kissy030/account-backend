@@ -14,14 +14,12 @@ services:
       - app-net
 
   account-backend:
-    image: crpi-htkfq5l5wrjuxyeh.cn-hangzhou.personal.cr.aliyuncs.com/wyzproject/account-backend:latest
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
     ports:
-      - '3000:3000'
-    environment:
-      REDIS_HOST: redis
-      DB_HOST: mysql
-      DB_USER: root
-      DB_PASSWORD: 123456
+      - 3000:3000
+
     depends_on:
       - redis
       - mysql
