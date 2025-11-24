@@ -13,8 +13,7 @@ import { createClient } from 'redis';
       async useFactory() {
         const client = createClient({
           socket: {
-            host: process.env.REDIS_HOST || 'localhost', // ✅ 从环境变量读取
-            port: parseInt(process.env.REDIS_PORT ?? '6379', 10) || 6379,
+            host: "redis-container",
           },
         });
 
