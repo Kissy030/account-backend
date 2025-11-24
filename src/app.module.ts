@@ -34,11 +34,11 @@ import { SignalInfo } from './signal-info/entities/signal-info.entity';
     TypeOrmModule.forRootAsync({
       useFactory: (configService: ConfigService) => ({
         type: 'mysql',
-        host: configService.get<string>('DB_HOST', 'localhost'),
-        port: configService.get<number>('DB_PORT', 3306),
-        username: configService.get<string>('DB_USERNAME', 'nestuser'),
-        password: configService.get<string>('DB_PASSWORD', 'nestuser'),
-        database: configService.get<string>('DB_DATABASE', 'test'),
+        host: 'app-net',
+        port: 3306,
+        username: 'account_db',
+        password: '123456',
+        database: 'test',
         entities: [User, AccountInfo, SignalInfo],
         synchronize: false,
         logging: true,
