@@ -6,14 +6,14 @@ import { createTransport, Transporter } from 'nodemailer';
 export class MailService {
   transporter: Transporter;
 
-  constructor(private configService: ConfigService) {
+  constructor() {
     this.transporter = createTransport({
       host: 'smtp.qq.com',
       port: 465,
       secure: true,
       auth: {
-        user: this.configService.get('email_user'),
-        pass: this.configService.get('email_password'),
+        user: '807322562@qq.com',
+        pass: 'etmhjmjuzypgbcei',
       },
     });
   }
