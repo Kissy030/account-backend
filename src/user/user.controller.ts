@@ -1,10 +1,12 @@
 import {
   Body,
   Controller,
+  Get,
   HttpException,
   HttpStatus,
   Inject,
   Post,
+  Req,
   Res,
   ValidationPipe,
 } from '@nestjs/common';
@@ -54,6 +56,18 @@ export class UserController {
     });
     await this.redisService.del(`captcha_${email}`);
     return { statusCode: 200 };
+  }
+
+  @Get('status')
+  getStatus(@Req() req) {
+    const token = req.cookies?.access_token;
+    if (!token) return { isLoggedIn: false };
+    try {
+      this.jwtService.verify(token, { secret: process.env.JWT_SECRET });
+      return { isLoggedIn: true };
+    } catch {
+      return { isLoggedIn: false };
+    }
   }
 
   @Post('logout')
