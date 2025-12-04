@@ -41,10 +41,9 @@ import { SignalInfo } from './signal-info/entities/signal-info.entity';
         entities: [User, AccountInfo, SignalInfo],
         synchronize: false,
         logging: true,
-        poolSize: 5,
+        poolSize: 10,
         connectorPackage: 'mysql2',
         extra: {
-          // authPlugin: 'sha256_password',
           decimalNumbers: true,
         },
       }),
